@@ -1,5 +1,5 @@
-# Analytics
+# Maven Analytics
 
-![image](https://github.com/user-attachments/assets/acbb0c3f-c1bf-406e-8d85-f8f0112dfde8)
+![image](https://github.com/user-attachments/assets/af49e0da-24c2-43b3-95ca-06af3280a515)
 
-Repositório criado para projetos de Analytics, como Power BI, Tableau, Grafana, etc.
+Repositório criado para projetos de Analytics da Maven
