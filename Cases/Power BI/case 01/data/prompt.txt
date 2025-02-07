@@ -1,0 +1,17 @@
+Link do meu prompt: https://chatgpt.com/share/67a64247-ae30-8009-a095-2ebed047c513
+
+Prompt
+________________________
+pensei em criar dashboards de exemplos com algumas funções como calculate, all, allexcept, sumx, etc...
+
+estes dashboards, em power bi, ficariam hospedados no meu repositório do github e serviriam de modelo para quem tiver dúvidas poder consultar ou até mesmo baixar.
+
+gostaria de ajuda para criar estes dashboards.
+________________________
+não tenho nada.
+preciso que me ajude do zero
+________________________
+podemos fazer sobre o tema Vendas, e começar criando um conjunto de dados fictícios.
+________________________
+Quero sim. Pode gerar os arquivos Excel. Mas preciso que eles tenham mais linhas. O exemplo que vc gerou tem poucas linhas.
+________________________
