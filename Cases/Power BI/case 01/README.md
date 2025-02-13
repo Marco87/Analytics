@@ -1,4 +1,4 @@
-**Mockup do Dashboard de Vendas - Estrutura das Telas**
+**Dashboard de Vendas - Estrutura das Telas**
 
 ## **📌 Estrutura das Telas do Dashboard**
 
