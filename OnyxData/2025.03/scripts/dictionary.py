@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Caminho correto do arquivo (voltando um nível e entrando na pasta "data")
-arquivo = "../data/Onyx Data -DataDNA Dataset Challenge - Washington Crimes Dataset - March 2025.xlsx"
+arquivo = "../data/washington_crimes.xlsx"
 
 # Carregar a aba "Data Dictionary", ignorando as três primeiras linhas e pegando apenas a primeira coluna
 df = pd.read_excel(arquivo, sheet_name="Data Dictionary", header=None, skiprows=3, usecols=[0])
