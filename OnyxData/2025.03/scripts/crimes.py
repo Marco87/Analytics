@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 
 # Definir caminho do arquivo
-arquivo = Path("OnyxData/2025.03/data/washington_crimes.xlsx")
+arquivo = Path("OnyxData/2025.03/data/washington_crimes_dataset.xlsx")
 
 # Verificar se o arquivo existe
 if not arquivo.exists():
@@ -28,6 +28,6 @@ df = df.astype({
 })
 
 df = df.drop(columns=["location", "offense-text", "offensekey", "OCTO_RECORD_ID", "YEAR"])
-df.to_excel("OnyxData/2025.03/data/washington_crimes_cleaned.xlsx", index=False)
+df.to_excel("OnyxData/2025.03/data/washington_crimes.xlsx", index=False)
 
 print("Processo concluído! Novo arquivo salvo como 'washington_crimes_cleaned.xlsx'.")
