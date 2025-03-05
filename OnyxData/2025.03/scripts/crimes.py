@@ -31,4 +31,4 @@ df = df.astype({
 df = df.drop(columns=["location", "offense-text", "offensekey", "OCTO_RECORD_ID", "YEAR", "REPORT_DAT"])
 df.to_excel("OnyxData/2025.03/data/washington_crimes.xlsx", index=False)
 
-print("Processo concluído! Novo arquivo salvo como 'washington_crimes_cleaned.xlsx'.")
+print("Processo concluído! Novo arquivo salvo como 'washington_crimes.xlsx'.")
