@@ -37,5 +37,6 @@ def generate_calendar_table_from_dataframe(df, date_column='START_DATE'):
     return calendar
 
 df_calendar = generate_calendar_table_from_dataframe(df)
+df_calendar.to_excel("OnyxData/2025.03/data/data_calendar.xlsx", index=False)
 
-print(df_calendar)
+print("Processo concluído! Novo arquivo salvo como 'data_calendar.xlsx'.")
