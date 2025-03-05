@@ -1,5 +1,5 @@
 # Analytics
 
-![image](https://github.com/user-attachments/assets/acbb0c3f-c1bf-406e-8d85-f8f0112dfde8)
+![image](https://cdn.prod.website-files.com/65e5e51a37727a3f9a56e157/6718fb7632e6f20fe0b7bbb2_Onyx%20Data.png)
 
-Repositório criado para projetos do Onyx Data.
+Repositório criado para projetos do <a href="https://onyxdata.co.uk/data-dna-dataset-challenge/">Onyx Data</a>.
