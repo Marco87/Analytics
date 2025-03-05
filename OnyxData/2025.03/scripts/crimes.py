@@ -1,10 +1,8 @@
 import pandas as pd
 from pathlib import Path
 
-# Definir caminho do arquivo
 arquivo = Path("OnyxData/2025.03/data/washington_crimes_dataset.xlsx")
 
-# Verificar se o arquivo existe
 if not arquivo.exists():
     raise FileNotFoundError(f"Arquivo não encontrado: {arquivo.resolve()}")
 
