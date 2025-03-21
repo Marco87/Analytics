@@ -1,0 +1,7 @@
+{
+    "name": "Gradiente Genérico",
+    "dataColors": ["#0E0E76", "#8C0073", "#D02560", "#F76D4D", "#FFB449", "#F9F871"],
+    "background": "#FFFFFF",
+    "foreground": "#0E0E76",
+    "tableAccent": "#D02560"
+}
