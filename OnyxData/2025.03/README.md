@@ -15,7 +15,7 @@ This dashboard was developed in **Power BI** to analyze crimes that occurred in 
 - **Incidents by Offense Type**: Detailed specification of recorded crime types.
 - **Incidents by Method**: Analysis of the methods used in committing crimes.
 
-### ⏳ Time Analysis
+### ⏳ Time Analysis (Based on Incident Start Date/Time)
 - **Incidents by Time Interval**: Distribution of crimes over specific periods.
 - **Incidents by Day of the Week**: Identification of weekly patterns.
 - **Incidents by Time of Day**: Frequency analysis during **morning, afternoon, evening, and night**.
@@ -35,9 +35,9 @@ This dashboard was developed in **Power BI** to analyze crimes that occurred in 
 ## 📂 Repository & Contact
 This dashboard is available on my GitHub. If you have any questions or suggestions, feel free to reach out!
 
-🔗 [Portfolio](#) *(https://allen87.com.br/)*
+🔗 [Portfolio](https://allen87.com.br/)
 
-🔗 [LinkedIn](#) *(https://linkedin.com/in/marco-alencastro)*
+🔗 [LinkedIn](https://linkedin.com/in/marco-alencastro)
 
 ---
 📢 *This dashboard was created to provide strategic insights into public safety in Washington, helping with data-driven decision-making.*
