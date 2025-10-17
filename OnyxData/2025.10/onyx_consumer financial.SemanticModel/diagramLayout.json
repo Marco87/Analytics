@@ -1,0 +1,135 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 661,
+            "y": 21
+          },
+          "nodeIndex": "Data Dictionary",
+          "nodeLineageTag": "314d373b-bd2c-41c1-aa8d-d000d83e94ee",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 945,
+            "y": 122
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "b16516cb-0a5a-4e96-987b-a7c2babff8f3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "fComplaints",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 334,
+            "y": -48
+          },
+          "nodeIndex": "dCompany",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 358.60171306209867,
+            "y": 455.66274089935763
+          },
+          "nodeIndex": "dCalendar",
+          "nodeLineageTag": "43a0b357-8b3e-4a97-882f-ca06da1c9a82",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 636.6456102783726,
+            "y": 289.55835117773023
+          },
+          "nodeIndex": "dStates",
+          "nodeLineageTag": "e36cb28b-224c-4f88-8a1b-f66289cefc19",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1229,
+            "y": 275.83137044967884
+          },
+          "nodeIndex": "_pMeasures",
+          "nodeLineageTag": "ae69d6ba-14cc-42d8-9cf5-532448878ec3",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1797,
+            "y": 275.83137044967884
+          },
+          "nodeIndex": "_pCategory_2",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1513,
+            "y": 275.83137044967884
+          },
+          "nodeIndex": "_pCategory_1",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 57.904525728456292,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

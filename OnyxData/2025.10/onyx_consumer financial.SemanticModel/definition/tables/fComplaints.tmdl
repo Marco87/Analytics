@@ -1,0 +1,187 @@
+table fComplaints
+	lineageTag: 388293d3-daa1-4442-b73b-a9ac15599000
+
+	column 'Complaint ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5907a8a3-ff99-412a-b5c1-2f5297b43c37
+		summarizeBy: count
+		sourceColumn: Complaint ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Submitted via'
+		dataType: string
+		lineageTag: 6e32aa43-697e-49cd-942a-0e6bc14ee720
+		summarizeBy: none
+		sourceColumn: Submitted via
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date submitted'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 380eb55c-66bf-4e89-9818-da522d95e9f3
+		summarizeBy: none
+		sourceColumn: Date submitted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Date received'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: fd6b7098-8dcd-46b7-bf40-a32f2d478f31
+		summarizeBy: none
+		sourceColumn: Date received
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column State
+		dataType: string
+		lineageTag: c3f1dcca-d3d5-49c8-86c4-5bf63cc5272f
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column State_Latitude
+		dataType: double
+		lineageTag: 6687e006-2334-48dc-84fa-5c1c027b336a
+		dataCategory: Latitude
+		summarizeBy: sum
+		sourceColumn: State_Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column State_Longitude
+		dataType: double
+		lineageTag: c1d0dbf0-9b75-43bb-952c-e27e858e930b
+		dataCategory: Longitude
+		summarizeBy: sum
+		sourceColumn: State_Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Product
+		dataType: string
+		lineageTag: f89ca70d-e402-456b-9ed6-345244949047
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sub-product
+		dataType: string
+		lineageTag: 48d75fc6-b751-4ace-bd1b-ce8b01e14889
+		summarizeBy: none
+		sourceColumn: Sub-product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Issue
+		dataType: string
+		lineageTag: 6125b99c-6704-4217-a59a-5c3cc69f0236
+		summarizeBy: none
+		sourceColumn: Issue
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sub-issue
+		dataType: string
+		lineageTag: 71e9c066-556e-4a93-b32c-41abd95b986b
+		summarizeBy: none
+		sourceColumn: Sub-issue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company public response'
+		dataType: string
+		lineageTag: 4a98dc83-9d20-4c53-b11b-bdbadb21b594
+		summarizeBy: none
+		sourceColumn: Company public response
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company response to consumer'
+		dataType: string
+		lineageTag: a504b6c7-2d2a-4bc3-b2d0-84076bc1651b
+		summarizeBy: none
+		sourceColumn: Company response to consumer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Timely response?'
+		dataType: string
+		lineageTag: 8e290c31-243f-4770-96c4-71e907c7f68c
+		summarizeBy: none
+		sourceColumn: Timely response?
+
+		annotation SummarizationSetBy = Automatic
+
+	column Census_Region
+		dataType: string
+		lineageTag: a1f5cf97-0160-4aac-b1e2-741e683ffe6c
+		summarizeBy: none
+		sourceColumn: Census_Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Census_Division
+		dataType: string
+		lineageTag: 9dabc7f3-4345-4161-8e79-3b1372378a0f
+		summarizeBy: none
+		sourceColumn: Census_Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Response_Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e2f45554-3a3d-4b32-b522-06bc0c3e5085
+		summarizeBy: none
+		sourceColumn: Company_Response_Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Company_ID_1081
+		dataType: string
+		lineageTag: e50e930d-d974-40c2-b556-20570d41f447
+		summarizeBy: none
+		sourceColumn: Company_ID_1081
+
+		annotation SummarizationSetBy = Automatic
+
+	column Response_Time_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 610959d5-4ce9-427a-8cc9-cb028c496b24
+		summarizeBy: sum
+		sourceColumn: Response_Time_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fComplaints = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.10\data\DataDNA Dataset Challenge - Consumer Financial Complaints Dataset - October 2025.xlsx"), null, true),
+				    #"Complaints (Fact)_Sheet" = Fonte{[Item="Complaints (Fact)",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Complaints (Fact)_Sheet", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Complaint ID", Int64.Type}, {"Submitted via", type text}, {"Date submitted", type date}, {"Date received", type date}, {"State", type text}, {"State_Latitude", type number}, {"State_Longitude", type number}, {"Product", type text}, {"Sub-product", type text}, {"Issue", type text}, {"Sub-issue", type text}, {"Company public response", type text}, {"Company response to consumer", type text}, {"Timely response?", type text}, {"Census_Region", type text}, {"Census_Division", type text}, {"Company_Response_Date", type date}, {"Company_ID_1081", type text}, {"Response_Time_Days", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

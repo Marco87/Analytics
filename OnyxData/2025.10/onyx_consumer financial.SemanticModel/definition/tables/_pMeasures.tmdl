@@ -1,0 +1,48 @@
+table _pMeasures
+	lineageTag: ae69d6ba-14cc-42d8-9cf5-532448878ec3
+
+	column _pMeasures
+		lineageTag: ef526afa-d047-42a1-a284-dcf62880f127
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: '_pMeasures Pedido'
+
+		relatedColumnDetails
+			groupByColumn: '_pMeasures Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_pMeasures Campos'
+		isHidden
+		lineageTag: e720cdcc-2634-4ece-96de-74905a0e4007
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: '_pMeasures Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column '_pMeasures Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 07d9514b-1052-4406-a5c9-778024a12196
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _pMeasures = calculated
+		mode: import
+		source =
+				{
+				    ("Complaints", NAMEOF('_Measures'[Complaints]), 0),
+				    ("Response time avg (days)", NAMEOF('_Measures'[Response time avg (days)]), 1)
+				}
+
+	annotation PBI_Id = d003c11ba0004c119c9d4c72e4c98df8
+

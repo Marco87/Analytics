@@ -1,0 +1,32 @@
+table dStates
+	lineageTag: e36cb28b-224c-4f88-8a1b-f66289cefc19
+
+	column State_Abbreviation
+		dataType: string
+		lineageTag: ed639690-dbac-436b-ad46-538e547ee196
+		summarizeBy: none
+		sourceColumn: State_Abbreviation
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 09560ab7-6b77-4a54-8143-ec799024bf1d
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dStates = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("XZPRbqMwEEV/BeW5PxHBtqEJUIU0bLbqwwTcMAI8kW2aZr9+PR4nu12Jl3tkX+5chre3xXKzeFgsRzjCBIv3Bw/WAuwQ9S/WBn+TjmAbwADagg0kXXqSwogfZDTKqbRiRiMZ6EjILhCtVeuwnV2A2Q8PMzXCBYwK5JEDPfp72InTE7s/KTKnaL3KPVj5G4hB55nXeQe9vCdng3wcURNKvrxkojuEOELOljldRK1rr9Z/x1kfWCvt5na4BrLh8xua0d4tCg5eAGpJXWRBmusIuhOyDMRaaPvZKufEvODwBbY9nkALKQPxvVhy0bwOyFp+zmcZs6gipNlEwo0WpN0tVMmhSnU0969X7gP5hFhmuQr6kqxgOtseY+nlc8TPylglQ5dFZIX6wla6LQ+RHcgMQlImZFyfpGDItx5flN15BsNtsIpfX/UobhWvWjWM/svF5at4tyqjTiTdvHCJL0prex0/4bZbW+5w21OnktzeC685SU3z/0nq7M7/SbLj1neKW7dKStj9DOgrrsErt/vqoA9qz2qvzOTrFsDR9ui38harYdKAb1WfXByg4f4bZV3y/ShP0KBtSVuMJ7na5kqTvy2/Bs+ToXUGW5fQR+L/pnk6ssP7Hw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [State_Abbreviation = _t, State = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"State_Abbreviation", type text}, {"State", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

@@ -1,0 +1,35 @@
+table _Measures
+	lineageTag: b16516cb-0a5a-4e96-987b-a7c2babff8f3
+
+	measure Complaints = COUNT('fComplaints'[Complaint ID]) + 0
+		formatString: #,0
+		lineageTag: cebf9b5c-fcf6-4513-b4af-eada170e7c53
+
+	measure 'Distinct companies' = DISTINCTCOUNT(fComplaints[Company_ID_1081]) + 0
+		formatString: #,0
+		lineageTag: abe44fea-5d25-429d-8316-5aa70888356a
+
+	measure 'Response time avg (days)' = AVERAGE(fComplaints[Response_Time_Days]) + 0
+		formatString: 0.0
+		lineageTag: 7bd03be9-7817-40ff-b8ae-24a3dc522df0
+
+	measure 'Reputation score' = AVERAGE(dCompany[Reputation_Score]) + 0
+		formatString: 0.00
+		lineageTag: f743671a-0a79-41ea-a038-b47be1267f36
+
+	measure 'Timely response rate' = AVERAGE(dCompany[Timely_Response_Rate]) + 0
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e12790ff-345e-40cc-a011-b7d82b0c36cb
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

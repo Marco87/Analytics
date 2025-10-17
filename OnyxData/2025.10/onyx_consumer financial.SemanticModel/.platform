@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "onyx_consumer financial"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "84abf6a7-c79f-4340-a18e-0fd90463f025"
+  }
+}

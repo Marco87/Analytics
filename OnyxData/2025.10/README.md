@@ -1,6 +1,10 @@
 # 💼 Consumer Financial Complaints Analytics – Power BI Dashboard  
 ### Developed for the [**DataDNA Challenge – October 2025 (Onyx Data)**](https://datadna.onyxdata.co.uk/challenges/october-2025-datadna-consumer-financial-complaints-analytics-challenge/?ck_subscriber_id=1387339873&utm_source=convertkit&utm_medium=email&utm_campaign=The%20October%202025%20DataDNA%20Dataset%20Challenge%20has%20Begun!%20-%2019181388)
 
+
+🔗 **Live Dashboard:** [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZWQxZjllYmUtZDBhNi00ODY5LTg3NTYtZjA0Mzk3MzBlODQ4IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
+
 ---
 
 ## 📘 Project Overview

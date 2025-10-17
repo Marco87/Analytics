@@ -1,0 +1,12 @@
+relationship AutoDetected_e6b2f204-d40c-47af-b01f-e180690bfeae
+	fromColumn: fComplaints.Company_ID_1081
+	toColumn: dCompany.Company_ID_1081
+
+relationship eb27fc16-09e2-0f34-157d-ef1239793ecb
+	fromColumn: fComplaints.State
+	toColumn: dStates.State_Abbreviation
+
+relationship 48e4f8c0-f79b-84e9-0905-384b5c2ab705
+	fromColumn: fComplaints.'Date submitted'
+	toColumn: dCalendar.Date
+

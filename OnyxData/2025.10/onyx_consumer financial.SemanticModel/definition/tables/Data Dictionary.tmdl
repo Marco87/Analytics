@@ -1,0 +1,55 @@
+table 'Data Dictionary'
+	isHidden
+	lineageTag: 314d373b-bd2c-41c1-aa8d-d000d83e94ee
+
+	column Table
+		dataType: string
+		isHidden
+		lineageTag: d2bfa148-c69b-4fd7-ad0e-a09e844bea71
+		summarizeBy: none
+		sourceColumn: Table
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column Name'
+		dataType: string
+		isHidden
+		lineageTag: ece5fea0-b11f-42a6-a99c-a551a1d801e4
+		summarizeBy: none
+		sourceColumn: Column Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		isHidden
+		lineageTag: 16d927d5-9237-4777-b423-8df686574e39
+		summarizeBy: none
+		sourceColumn: Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data Dictionary' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.10\data\DataDNA Dataset Challenge - Consumer Financial Complaints Dataset - October 2025.xlsx"), null, true),
+				    #"Data Dictionary_Sheet" = Fonte{[Item="Data Dictionary",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Data Dictionary_Sheet",{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Table", type text}, {"Column Name", type text}, {"Description", type text}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

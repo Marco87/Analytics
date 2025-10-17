@@ -1,0 +1,102 @@
+table dCompany
+	lineageTag: bf7abbb2-dbd4-433b-843f-d4e4be2c1b84
+
+	column Company_ID_1081
+		dataType: string
+		lineageTag: 41f98983-7d2b-475f-9ee1-50ba88fd3cba
+		summarizeBy: none
+		sourceColumn: Company_ID_1081
+
+		annotation SummarizationSetBy = Automatic
+
+	column Market_Share_Percent
+		dataType: double
+		lineageTag: 68b8cf43-0f44-4041-b991-ea89a1ce088a
+		summarizeBy: none
+		sourceColumn: Market_Share_Percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Reputation_Score
+		dataType: int64
+		formatString: 0
+		lineageTag: 64125181-cb70-42e3-9218-538be314a27b
+		summarizeBy: none
+		sourceColumn: Reputation_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enforcement_History
+		dataType: string
+		lineageTag: 39d18714-0e4d-4750-924d-836ea5098e66
+		summarizeBy: none
+		sourceColumn: Enforcement_History
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Size_Tier
+		dataType: string
+		lineageTag: b5a30da9-55fe-4367-a981-68bc55c9c85a
+		summarizeBy: none
+		sourceColumn: Company_Size_Tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Complaint_Count
+		dataType: int64
+		formatString: 0
+		lineageTag: 09ca30d0-f6a1-434f-a62a-95efd5091cb4
+		summarizeBy: none
+		sourceColumn: Complaint_Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Timely_Response_Rate
+		dataType: double
+		lineageTag: d702cae0-ddf5-444e-9463-9a6ad7ec0e00
+		summarizeBy: none
+		sourceColumn: Timely_Response_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Avg_Response_Time_Days
+		dataType: double
+		lineageTag: d72364cf-74a4-49a3-8a8d-486a1eed397e
+		summarizeBy: none
+		sourceColumn: Avg_Response_Time_Days
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Complaints_per_1pct_Share
+		dataType: double
+		lineageTag: 3a087481-7902-4b79-ab9b-87350a3c199f
+		summarizeBy: none
+		sourceColumn: Complaints_per_1pct_Share
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dCompany = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.10\data\DataDNA Dataset Challenge - Consumer Financial Complaints Dataset - October 2025.xlsx"), null, true),
+				    Company_Sheet = Fonte{[Item="Company",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Company_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Company_ID_1081", type text}, {"Market_Share_Percent", type number}, {"Reputation_Score", Int64.Type}, {"Enforcement_History", type text}, {"Company_Size_Tier", type text}, {"Complaint_Count", Int64.Type}, {"Timely_Response_Rate", type number}, {"Avg_Response_Time_Days", type number}, {"Complaints_per_1pct_Share", type number}})
+				in
+				    #"Tipo Alterado"
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

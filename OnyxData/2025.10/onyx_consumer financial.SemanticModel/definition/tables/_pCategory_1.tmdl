@@ -1,0 +1,50 @@
+table _pCategory_1
+	lineageTag: e056733d-9c59-4f2c-908d-03f30fdd90d7
+
+	column _pCategory_1
+		lineageTag: 2e010959-7b52-4617-b7b4-0628ebd1081e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pCategory_1 Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pCategory_1 Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCategory_1 Campos'
+		isHidden
+		lineageTag: 60bbf426-917b-4e39-be8b-64d15d2eb50b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pCategory_1 Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCategory_1 Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 5eca9a4e-3a76-4289-8d38-b946f944d065
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _pCategory_1 = calculated
+		mode: import
+		source =
+				{
+				    ("Product", NAMEOF('fComplaints'[Product]), 1),
+				    ("Sub-product", NAMEOF('fComplaints'[Sub-product]), 2),
+				    ("Issue", NAMEOF('fComplaints'[Issue]), 3),
+				    ("Sub-issue", NAMEOF('fComplaints'[Sub-issue]), 4)
+				}
+
+	annotation PBI_Id = 6f88350d2d3b403db4aa94a3cacd5cf6
+
