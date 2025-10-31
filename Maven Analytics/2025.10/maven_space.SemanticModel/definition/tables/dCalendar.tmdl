@@ -1,0 +1,157 @@
+table dCalendar
+	lineageTag: a411bb4f-0196-4653-a7c2-220644971532
+
+	column Date
+		formatString: Short Date
+		lineageTag: 9b9ac95f-2820-45a5-9857-b258282efa44
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: a9439488-aa01-4348-bd9f-9fab6409474c
+			defaultHierarchy: LocalDateTable_59e29075-6b23-4b5d-a8fd-9d3ad3954de8.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: e4e80451-ec65-480a-a206-42b53db457ac
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: b91a1b7d-e92a-4839-b64a-0840c4d78453
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: 086774d4-8cb8-4b4e-af89-aba3ee1385f8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth_No
+		lineageTag: b28d06ec-0f27-4350-ab94-063f191acd28
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth_No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYear
+		lineageTag: ef52be0e-bcb6-4b21-ba6d-524c5fce8eda
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		formatString: 0
+		lineageTag: 29fe394d-4eb6-4715-a32a-6f7aaefc3603
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trim
+		lineageTag: 2a89eda4-eb95-45ce-93d2-dda071318e70
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trim]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sem
+		lineageTag: fc1f2bd3-424a-487f-9a1d-bb06e90a83ae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Sem]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		lineageTag: 06809135-2c49-4d10-bf99-a9c3e0656e5e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday_No
+		formatString: 0
+		lineageTag: b3a94b6f-4168-4269-bafc-89c7008c4a4b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Weekday_No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		lineageTag: 58e3371d-a8bc-45cd-ba70-e56163cc6a15
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DayOfWeek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNumber
+		formatString: 0
+		lineageTag: 14b591af-c276-4b58-a389-1c64e0180772
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [WeekNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SemesterYear
+		lineageTag: 1174792e-e119-403b-b2d6-80f4f088c52d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SemesterYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearSemester
+		lineageTag: 3845da35-4750-457c-9e7b-647e432479fa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearSemester]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendar = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    CALENDAR(MIN(space_missions[Date]),MAX(space_missions[Date])),
+				    "Year", YEAR([Date]),
+				    "Month", FORMAT([Date], "MMMM"),
+				    "YearMonth", FORMAT([Date], "yyyy.MMM"),
+				    "YearMonth_No", FORMAT([Date], "yyyyMM"),
+				    "MonthYear", FORMAT([Date], "MMM.yyyy"),
+				    "MonthNumber", MONTH([Date]),
+				    "Trim", FORMAT([Date], "Q") & "° Quarter - " & YEAR([Date]),
+				    "Sem", IF(MONTH([Date]) <= 6, "1° Semester - ", "2° Semester - ") & YEAR([Date]),
+				    "Weekday", FORMAT([Date], "dddd"),
+				    "Weekday_No", WEEKDAY([Date],1),
+				    "DayOfWeek", FORMAT ([Date], "dddd" ),
+				    "WeekNumber", WEEKNUM ([Date], 2 ),
+				    "SemesterYear", "S" & ROUNDUP ( MONTH ([Date] ) / 6, 0 ) & " " & YEAR ([Date]),
+				    "YearSemester", YEAR ([Date]) & " S" & ROUNDUP ( MONTH ([Date]) / 6, 0 )
+				)
+
+	annotation PBI_Id = 48c726bf73694b6f97a25736d7be3fc9
+

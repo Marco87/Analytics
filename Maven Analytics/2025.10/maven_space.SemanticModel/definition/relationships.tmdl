@@ -1,0 +1,17 @@
+relationship a9439488-aa01-4348-bd9f-9fab6409474c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendar.Date
+	toColumn: LocalDateTable_59e29075-6b23-4b5d-a8fd-9d3ad3954de8.Date
+
+relationship 7d90a95f-36c3-6978-38ff-e901228ce1ba
+	fromColumn: space_missions.Date
+	toColumn: dCalendar.Date
+
+relationship dbf25e5c-62d7-3d91-c262-aba87666a8f5
+	fromColumn: space_missions.Time
+	toColumn: dTime.Time
+
+relationship fc1129db-9768-9a61-6dcc-b869fb763678
+	fromColumn: space_missions.Location
+	toColumn: dLocation.Location
+

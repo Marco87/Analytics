@@ -1,0 +1,79 @@
+table dLocation
+	lineageTag: 4609ec78-8a51-4a6b-8400-04886252e86a
+
+	column Location
+		lineageTag: 3c2ae94a-e425-47b6-821f-d0246c76fbef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: space_missions[Location]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country =
+			
+			TRIM(
+			    PATHITEMREVERSE(
+			        SUBSTITUTE([Location], ",", "|"),
+			        1
+			    )
+			)
+		lineageTag: 9b579622-3c8f-4009-86d4-caa8141925f4
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column City = ```
+			
+			VAR vLocation = [Location]
+			VAR vQtdVirgulas = LEN(vLocation) - LEN(SUBSTITUTE(vLocation, ",", ""))
+			VAR vTextoSimples = TRIM(LEFT(vLocation, FIND(",", vLocation) - 1))
+			VAR vTextoCompleto =
+			    TRIM(
+			        PATHITEMREVERSE(
+			            SUBSTITUTE(vLocation, ",", "|"),
+			            2
+			        )
+			    )
+			RETURN
+			    IF(vQtdVirgulas = 1, vTextoSimples, vTextoCompleto)
+			
+			```
+		lineageTag: a676a5d4-358e-44e1-af5b-8fa62b76ec02
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Place = ```
+			
+			VAR vQtdVirgulas = LEN([Location]) - LEN(SUBSTITUTE([Location], ",", ""))
+			VAR vTextoSimples = LEFT([Location], FIND(",", [Location]) - 1)
+			VAR vTextv1 =
+			    TRIM(
+			        LEFT(
+			            [Location],
+			            LEN([Location])
+			            - LEN(PATHITEMREVERSE(SUBSTITUTE([Location], ",", "|"), 2)) 
+			            - LEN(PATHITEMREVERSE(SUBSTITUTE([Location], ",", "|"), 1)) 
+			        )
+			    )
+			VAR vTextv2 =
+			    IF(
+			        RIGHT(vTextv1, 1) = ",",
+			        LEFT(vTextv1, LEN(vTextv1) - 1),
+			        vTextv1
+			    )
+			RETURN
+			    IF(vQtdVirgulas = 1, vTextoSimples, vTextv2)
+			
+			```
+		lineageTag: 82c7f367-13e6-4851-91a2-0705ff57263b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dLocation = calculated
+		mode: import
+		source = VALUES(space_missions[Location])
+
+	annotation PBI_Id = dc48015b33b346f4ab80dc87e541d2ed
+

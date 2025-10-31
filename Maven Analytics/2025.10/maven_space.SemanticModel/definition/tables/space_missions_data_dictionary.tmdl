@@ -1,0 +1,43 @@
+table space_missions_data_dictionary
+	isHidden
+	lineageTag: 20339a50-f548-47fb-8f03-4ae73e51bce2
+
+	column Field
+		dataType: string
+		isHidden
+		lineageTag: ba98bbfa-09e8-4342-8cd2-50ca807c9cf7
+		summarizeBy: none
+		sourceColumn: Field
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		isHidden
+		lineageTag: 5362e23b-19da-4cd9-a157-c873453797c0
+		summarizeBy: none
+		sourceColumn: Description
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition space_missions_data_dictionary = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\Maven Analytics\2025.10\data\space_missions_data_dictionary.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Field", type text}, {"Description", type text}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

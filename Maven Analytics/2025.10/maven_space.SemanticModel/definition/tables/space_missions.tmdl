@@ -1,0 +1,106 @@
+table space_missions
+	lineageTag: 8b9998f1-55b0-4e0c-afec-881e29c74e0e
+
+	column Company
+		dataType: string
+		lineageTag: cd1dfc6e-88bc-48ef-8a46-9217a6cc0f6d
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: adde1b81-9d41-48f6-97e3-7726bccccf87
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 4e30db23-d894-4be7-9a71-a32cffb46753
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Time
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: c221fe39-8097-4c6e-b3fb-3769b682424c
+		summarizeBy: none
+		sourceColumn: Time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column Rocket
+		dataType: string
+		lineageTag: 827f16b7-6825-40ab-bab7-1cd3462a2611
+		summarizeBy: none
+		sourceColumn: Rocket
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mission
+		dataType: string
+		lineageTag: fc461311-0a3d-4553-9d0c-880910fc4b59
+		summarizeBy: none
+		sourceColumn: Mission
+
+		annotation SummarizationSetBy = Automatic
+
+	column RocketStatus
+		dataType: string
+		lineageTag: 4926e76e-9d3f-4c43-a823-05414e071b0e
+		summarizeBy: none
+		sourceColumn: RocketStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		lineageTag: cf9c02ca-8fb3-4976-834b-4ee02b81fe41
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MissionStatus
+		dataType: string
+		lineageTag: a55bb692-d7ef-4e5c-815d-ec0000200cc6
+		summarizeBy: none
+		sourceColumn: MissionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column TagPrice =
+			
+			IF(space_missions[Price] <> BLANK(), "Priced", "No Price")
+		lineageTag: 5008e24c-b592-40e5-892c-3fe5e6f18c92
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition space_missions = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\Maven Analytics\2025.10\data\space_missions.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Cabeçalhos Promovidos",",","",Replacer.ReplaceText,{"Price"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Valor Substituído",{{"Company", type text}, {"Location", type text}, {"Date", type date}, {"Time", type time}, {"Rocket", type text}, {"Mission", type text}, {"RocketStatus", type text}, {"Price", type number}, {"MissionStatus", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
