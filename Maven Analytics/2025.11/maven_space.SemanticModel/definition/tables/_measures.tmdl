@@ -1,0 +1,43 @@
+table _measures
+	lineageTag: f30e4eb0-23a8-4fd3-a263-41d4b4b50cf9
+
+	measure Missions = COUNTROWS(space_missions) + 0
+		formatString: #,0
+		lineageTag: 8b7ed71b-5dad-4735-9f68-6625f37689b0
+
+	measure Price = SUM(space_missions[Price]) + 0
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: a4f7869f-9bf3-4167-b3e3-56b2ffcb4e67
+
+	measure Countries = DISTINCTCOUNT(dLocation[Country]) + 0
+		formatString: #,0
+		lineageTag: 3bd02f9a-ea15-4c3d-b3ce-edf12d9c5147
+
+	measure Cities = DISTINCTCOUNT(dLocation[City]) + 0
+		formatString: #,0
+		lineageTag: eb4db454-9fba-4167-af9f-5fbf81f5b70f
+
+	measure Locations = DISTINCTCOUNT(dLocation[Location]) + 0
+		formatString: #,0
+		lineageTag: 8eb5b3cb-70b2-4d70-b049-6c79f36251cc
+
+	measure Rockets = DISTINCTCOUNT(space_missions[Rocket]) + 0
+		formatString: #,0
+		lineageTag: 20cca16a-504d-4e7c-b14a-d68b2cdbfe34
+
+	measure Companies = DISTINCTCOUNT(space_missions[Company]) + 0
+		formatString: #,0
+		lineageTag: ab41e65d-799a-4e32-adcc-07a7873d8b13
+
+	partition _measures = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,211 @@
+table fEvents
+	lineageTag: a1ce90ad-37cc-4abf-9ef1-d3f54f2ec4f4
+
+	column event_id
+		dataType: string
+		lineageTag: 8d460b01-775b-4f2d-8dba-dd01767a5a7e
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type
+		dataType: string
+		lineageTag: 5bd902d1-4ab6-4f8b-9de6-85335ce31e38
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 549cd302-7670-4ea5-8729-0b9416e8681e
+		summarizeBy: none
+		sourceColumn: event_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_id
+		dataType: string
+		lineageTag: 29ad4588-52f2-4ac7-8205-aa76d3fc38bb
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: e63eef50-2afe-4068-8d59-2b5e1a41bc11
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: bbd9ca70-ba18-41aa-b7ae-f3a16d699063
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: 2a5f4a2a-7d06-416e-b94f-669a5d8c3f71
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: df32f6e3-cb86-4caa-8f21-1c8e345d131e
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d054b05-a12a-44f7-b6a5-408d416926da
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column unit_price_local
+		dataType: double
+		lineageTag: cea92f54-ef75-4034-bcd7-0f03f4eba5a0
+		summarizeBy: sum
+		sourceColumn: unit_price_local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column discount_code
+		dataType: string
+		lineageTag: c3fb16e2-ab50-41e0-ab7f-54ff4718c267
+		summarizeBy: none
+		sourceColumn: discount_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_local
+		dataType: double
+		lineageTag: 97ce9325-88dd-4365-a42b-be1e3e8ece25
+		summarizeBy: sum
+		sourceColumn: discount_local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_local
+		dataType: double
+		lineageTag: 1d63a3d8-cb33-451e-bb1d-93f4a094e1c5
+		summarizeBy: sum
+		sourceColumn: tax_local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_revenue_local
+		dataType: double
+		lineageTag: d72f3160-a196-4706-bcc9-e26557230adb
+		summarizeBy: sum
+		sourceColumn: net_revenue_local
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fx_rate_to_usd
+		dataType: double
+		lineageTag: 4143d2db-48ef-4d6d-8976-dae549b82c49
+		summarizeBy: sum
+		sourceColumn: fx_rate_to_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_revenue_usd
+		dataType: double
+		lineageTag: f2cf5f68-c8d9-4b83-8bdd-5f3b013ebaee
+		summarizeBy: sum
+		sourceColumn: net_revenue_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_refunded
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 08282b55-396c-4fd3-9881-25ae6b4f6570
+		summarizeBy: none
+		sourceColumn: is_refunded
+
+		annotation SummarizationSetBy = Automatic
+
+	column refund_datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 20e35445-951f-4930-bbf0-4cbda561b7c5
+		summarizeBy: none
+		sourceColumn: refund_datetime
+
+		variation Variation
+			isDefault
+			relationship: 242f5242-6e48-4a04-9f48-3ffb0bdad3b5
+			defaultHierarchy: LocalDateTable_2478c8e8-0839-4394-8e8a-21284dbac56d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column refund_reason
+		dataType: string
+		lineageTag: ca852108-adbf-4341-8326-118804263ab0
+		summarizeBy: none
+		sourceColumn: refund_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_time
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: b7a88bcc-1eca-4ccd-baa1-6fa42e17cc4c
+		summarizeBy: none
+		sourceColumn: event_time
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	partition fEvents = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.11\data\DataDNA Dataset Challenge - E-commerce Dataset - November 2025.xlsx"), null, true),
+				    Events_Sheet = Fonte{[Item="Events",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Events_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"event_id", type text}, {"event_type", type text}, {"event_date", type datetime}, {"customer_id", type text}, {"product_id", type text}, {"country", type text}, {"latitude", type number}, {"longitude", type number}, {"region", type text}, {"channel", type text}, {"payment_method", type text}, {"currency", type text}, {"quantity", Int64.Type}, {"unit_price_local", type number}, {"discount_code", type text}, {"discount_local", type number}, {"tax_local", type number}, {"net_revenue_local", type number}, {"fx_rate_to_usd", type number}, {"net_revenue_usd", type number}, {"is_refunded", type logical}, {"refund_datetime", type datetime}, {"refund_reason", type text}}),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(#"Tipo Alterado", "event_date", "event_date - Copiar"),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Duplicada",{{"event_date - Copiar", type time}, {"event_date", type date}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado1",{{"event_date - Copiar", "event_time"}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas", each [event_id] <> null and [event_id] <> ""),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Linhas Filtradas","","NA",Replacer.ReplaceValue,{"region"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Valor Substituído",{"latitude", "longitude", "region", "currency"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Colunas Removidas","","No refund necessary",Replacer.ReplaceValue,{"refund_reason"})
+				in
+				    #"Valor Substituído1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

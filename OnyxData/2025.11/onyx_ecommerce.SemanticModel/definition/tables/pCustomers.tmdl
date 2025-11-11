@@ -1,0 +1,49 @@
+table pCustomers
+	lineageTag: ea0d7fa9-5b55-4f24-88d6-561c35116a0b
+
+	column pCustomers
+		lineageTag: 82727bd7-c0bb-472f-819e-94aeb2b0f4e8
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pCustomers Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pCustomers Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCustomers Campos'
+		isHidden
+		lineageTag: 57f304a8-11da-4df4-90db-dc660efb4e6b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pCustomers Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCustomers Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 4d5df7da-c0f9-494a-b509-ea3698738a69
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pCustomers = calculated
+		mode: import
+		source =
+				{
+				    ("Segment", NAMEOF('dCustomers'[segment]), 0),
+				    ("Acquisition channel", NAMEOF('dCustomers'[acquisition_channel]), 1),
+				    ("Age band", NAMEOF('dCustomers'[age_band]), 2)
+				}
+
+	annotation PBI_Id = 9af8bf13c7d24904916fa5bef2fb062d
+

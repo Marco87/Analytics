@@ -1,0 +1,39 @@
+table dCountry
+	lineageTag: 9075a8d7-d594-4bca-9a39-cea554cdd264
+
+	column Country
+		dataType: string
+		lineageTag: c0782175-c3df-4e57-a0a0-3978e5a2b949
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abbreviation
+		dataType: string
+		lineageTag: 9db0ee0f-9385-4c14-9f86-669d9fe2353d
+		summarizeBy: none
+		sourceColumn: Abbreviation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Flag
+		dataType: string
+		lineageTag: c35664e4-a5f6-4d9e-b143-fa84c4919b97
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCountry = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jdKxboMwEAbgV4k8RzC0UzcSJRKhQhWIJSjDFZzgYhnLh5OUp6+xKjvjLQxI3/3H8bctyyzOBqQAtmVZ4x7DPGv8SNOrhJvoJoWJFFpg0vO7f4fp+/MtBZvg/cYu25btDCxCOrmryPzbBL4fhFrD9yVZdyroowHVcSeP9PBrDM9V7788p4eLGJ678BXTo8VLNBrg69nyTzqXgZ9A+/DTF1n/6KALWGAccPYjijN5xLjEEVz9rqcrDnTNgy75Y3PmIEH1jpf0DVTcoJzMPGyKyXC/B/0QYzxEZRF9Ayp6903sfj3Z1xXoRRhjEWoNYv0Nh5qsOQbd1JljDd3af3v5Aw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Country = _t, Abbreviation = _t, Flag = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Country", type text}, {"Abbreviation", type text}, {"Flag", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

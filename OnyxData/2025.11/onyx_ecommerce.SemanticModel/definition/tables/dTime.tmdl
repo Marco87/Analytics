@@ -1,0 +1,52 @@
+table dTime
+	lineageTag: 1837d3f2-7f0f-4f92-aaca-202a7f1cd226
+
+	column event_time
+		formatString: Long Time
+		lineageTag: 6d747ccc-6c43-4587-9be0-b4154097949b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: fEvents[event_time]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column time_text = CONVERT(dTime[event_time], STRING)
+		lineageTag: 323a872c-7151-4f2c-9b83-155bf5ec6255
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_number = CONVERT(MID(dTime[event_time],1,2),INTEGER)
+		formatString: 0
+		lineageTag: b93b1139-9ea5-45a1-97c6-72a8faa5d021
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column inteval =
+			
+			SWITCH(
+			    TRUE(),
+			    dTime[time_number] > 0  && dTime[time_number] <=  6 , "⏱️00:00 - 06:00",
+			    dTime[time_number] > 6  && dTime[time_number] <= 12 , "⏱️06:00 - 12:00",
+			    dTime[time_number] > 12 && dTime[time_number] <= 18 , "⏱️12:00 - 18:00",
+			    "⏱️18:00 - 00:00"
+			)
+		lineageTag: c569da69-b018-4690-b717-0793da8c361b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dTime = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    VALUES(fEvents[event_time]),
+				    NOT(ISBLANK(fEvents[event_time]))
+				)
+
+	annotation PBI_Id = 175d1acc923443eb8440f97403191c07
+

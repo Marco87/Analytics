@@ -1,0 +1,48 @@
+table pNumbers
+	lineageTag: 052fce88-a268-410d-a8ad-dac469a574e1
+
+	column pNumbers
+		lineageTag: 60cedfe8-237a-4b2b-be44-46e879b05511
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pNumbers Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pNumbers Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pNumbers Campos'
+		isHidden
+		lineageTag: 902da1b3-064a-4eb6-a621-8f564f2fdbba
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pNumbers Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pNumbers Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 5b150acd-57e5-416a-9af9-8a5cc89cf337
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pNumbers = calculated
+		mode: import
+		source =
+				{
+				    ("🎯Missions", NAMEOF('_measures'[Missions]), 0),
+				    ("💵Price", NAMEOF('_measures'[Price]), 1)
+				}
+
+	annotation PBI_Id = 1dbbf241527e41448123cafb86b327af
+

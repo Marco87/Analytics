@@ -1,0 +1,32 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dCustomers","dProducts","dCountries","fEvents","DataDictionary","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dCustomers
+ref table DateTableTemplate_a50a3bdd-7732-4057-8993-f751fa032577
+ref table LocalDateTable_9aa0b167-45a4-4fa2-ada0-f598eb4137a9
+ref table DataDictionary
+ref table fEvents
+ref table LocalDateTable_2478c8e8-0839-4394-8e8a-21284dbac56d
+ref table dProducts
+ref table LocalDateTable_d70fa4d8-b435-41c2-bf72-78a7ad7f8069
+ref table _Measures
+ref table dCalendar
+ref table dTime
+ref table dCountries
+ref table LocalDateTable_cdb45a7a-dfd2-46c0-9f28-de2afda162e5
+ref table pCustomers
+ref table pNumbers
+
+ref cultureInfo pt-BR
+

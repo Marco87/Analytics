@@ -1,0 +1,128 @@
+table dCountries
+	lineageTag: 7f169e3d-4832-4793-9d67-13d10b4a0e6f
+
+	column country
+		dataType: string
+		lineageTag: f50349cb-9084-464f-8833-4da7b304f6a8
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 8cf4a133-2f64-4011-a4b4-a329f438a4c1
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_preference
+		dataType: string
+		lineageTag: d35e4a56-01c8-4c9f-bf4c-fa35c8de10e5
+		summarizeBy: none
+		sourceColumn: currency_preference
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_latitude
+		dataType: double
+		lineageTag: b84b8500-bf12-4949-b9e9-6762ead300de
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: country_latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column country_longitude
+		dataType: double
+		lineageTag: 239b71f9-f516-47b2-a6a7-4b6161216800
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: country_longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column abbreviation
+		dataType: string
+		lineageTag: ab1aaf9f-33bd-41dd-bafd-41fc0f891a79
+		summarizeBy: none
+		sourceColumn: abbreviation
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag
+		dataType: string
+		lineageTag: b1241c30-e2ef-416b-a597-a111cd0494ed
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCountries = m
+		mode: import
+		source = ```
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.11\data\DataDNA Dataset Challenge - E-commerce Dataset - November 2025.xlsx"), null, true),
+				    Customers_Sheet = Fonte{[Item="Customers",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Customers_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"customer_id", type text}, {"signup_date", type datetime}, {"region", type text}, {"currency_preference", type text}, {"segment", type text}, {"acquisition_channel", type text}, {"age_band", type text}, {"country", type text}, {"country_latitude", type number}, {"country_longitude", type number}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tipo Alterado",{{"signup_date", type date}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado1","","NA",Replacer.ReplaceValue,{"region"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Valor Substituído",{"customer_id", "signup_date", "segment", "acquisition_channel", "age_band"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Removidas", {"country"}),
+				    
+				    // --- INÍCIO DA ADIÇÃO DAS NOVAS COLUNAS ---
+				    
+				    // 1. Tabela de Mapeamento de País -> Sigla/Flag
+				    CountryMapping = #table(
+				        {"country", "abbreviation", "flag"},
+				        {
+				            {"Australia", "AU", "https://flagicons.lipis.dev/flags/4x3/au.svg"},
+				            {"Brazil", "BR", "https://flagicons.lipis.dev/flags/4x3/br.svg"},
+				            {"Canada", "CA", "https://flagicons.lipis.dev/flags/4x3/ca.svg"},
+				            {"France", "FR", "https://flagicons.lipis.dev/flags/4x3/fr.svg"},
+				            {"Germany", "DE", "https://flagicons.lipis.dev/flags/4x3/de.svg"},
+				            {"Netherlands", "NL", "https://flagicons.lipis.dev/flags/4x3/nl.svg"},
+				            {"Philippines", "PH", "https://flagicons.lipis.dev/flags/4x3/ph.svg"},
+				            {"Spain", "ES", "https://flagicons.lipis.dev/flags/4x3/es.svg"},
+				            {"United Kingdom", "GB", "https://flagicons.lipis.dev/flags/4x3/gb.svg"},
+				            {"United States", "US", "https://flagicons.lipis.dev/flags/4x3/us.svg"}
+				            // Adicione aqui outros países da sua base, caso existam, seguindo o padrão
+				        }
+				    ),
+				    
+				    // 2. Mesclar a Tabela de Países (removidas as duplicatas) com o Mapeamento
+				    #"Mesclar Consultas" = Table.NestedJoin(
+				        #"Duplicatas Removidas", 
+				        {"country"}, 
+				        CountryMapping, 
+				        {"country"}, 
+				        "Mapping", 
+				        JoinKind.LeftOuter
+				    ),
+				    
+				    // 3. Expandir as colunas Abbreviation e Flag
+				    #"Expandir Mapping" = Table.ExpandTableColumn(
+				        #"Mesclar Consultas", 
+				        "Mapping", 
+				        {"abbreviation", "flag"}, 
+				        {"abbreviation", "flag"}
+				    ),
+				    
+				    // --- FIM DA ADIÇÃO DAS NOVAS COLUNAS ---
+				
+				    #"Colunas Reordenadas" = Table.ReorderColumns(#"Expandir Mapping",{"country", "abbreviation", "flag", "region", "currency_preference", "country_latitude", "country_longitude"})
+				in
+				    #"Colunas Reordenadas"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

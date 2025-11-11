@@ -1,0 +1,18 @@
+{
+    "name": "WaltNextTheme",
+    "dataColors": [
+        "#00D1FF",
+        "#5A8DF8",
+        "#2FD38C",
+        "#8B5CF6",
+        "#FF6B6B",
+        "#F9A826",
+        "#34D399",
+        "#A0AEC0",
+        "#1F2937",
+        "#FDBA8C"
+    ],
+    "background": "#0E1A2B",
+    "foreground": "#FFFFFF",
+    "tableAccent": "#00D1FF"
+}

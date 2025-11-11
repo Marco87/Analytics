@@ -1,0 +1,60 @@
+table _Measures
+	lineageTag: 6b53ffa7-c09f-4da4-92dd-5c3163815943
+
+	measure Events = COUNTROWS(fEvents) + 0
+		formatString: #,0
+		lineageTag: 67e04fbd-9699-4cf4-b5c9-a4a9820124b2
+
+	measure Revenue = SUM(fEvents[net_revenue_usd]) + 0
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 41b6fcfc-601b-41a6-b3ca-78f237f252e6
+
+	measure Customers = DISTINCTCOUNT(fEvents[customer_id]) + 0
+		formatString: #,0
+		lineageTag: 036bdadc-286c-4139-a1a6-ee28917c7449
+
+	measure Products = DISTINCTCOUNT(fEvents[product_id]) + 0
+		formatString: #,0
+		lineageTag: 9af432ec-3357-4df8-bde7-0c785d9178bf
+
+	measure 'Discount events' =
+			
+			COUNTROWS(
+			    FILTER(
+			        fEvents,
+			        fEvents[discount_code] <> "N/A"
+			    )
+			) + 0
+		formatString: #,0
+		lineageTag: 3120bab5-68fe-4019-b629-ad694278cb58
+
+	measure Discount =
+			
+			CALCULATE(
+			    SUM(fEvents[discount_local]),
+			    fEvents[discount_local] > 0
+			) + 0
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f03bfe9c-9386-4b5e-8003-c1fe3b16e9d1
+
+	measure 'Discount avg' =
+			
+			CALCULATE(
+			    AVERAGE(fEvents[discount_local]),
+			    fEvents[discount_local] > 0
+			) + 0
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c291b698-ef51-445d-ade7-d26d0884cad2
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

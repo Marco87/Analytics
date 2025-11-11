@@ -1,0 +1,143 @@
+table dProducts
+	lineageTag: 416fc2a2-b153-48b6-a235-3a6ee5e07227
+
+	column product_id
+		dataType: string
+		lineageTag: 10753543-56f5-4f13-803c-a1a061d81d84
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 003b6277-4c37-456f-a78b-71849945ecd2
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 894556cb-0396-4c16-9f9a-7a9e2adfe643
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_subscription
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dfdd34ae-35c4-4131-b995-0d1e8a8ac567
+		summarizeBy: none
+		sourceColumn: is_subscription
+
+		annotation SummarizationSetBy = Automatic
+
+	column billing_cycle
+		dataType: string
+		lineageTag: 13432bd8-8db6-4029-97d5-83898c9300cb
+		summarizeBy: none
+		sourceColumn: billing_cycle
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_price_usd
+		dataType: double
+		lineageTag: 4fde1185-ac06-4a4a-8b7d-db1cbe6cb3f4
+		summarizeBy: sum
+		sourceColumn: base_price_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column first_release_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c3428ec6-da3e-4de1-8c25-2f0e4e9589c4
+		summarizeBy: none
+		sourceColumn: first_release_date
+
+		variation Variation
+			isDefault
+			relationship: a39274f3-d061-4241-8a84-aaa2155977f8
+			defaultHierarchy: LocalDateTable_d70fa4d8-b435-41c2-bf72-78a7ad7f8069.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column vendor
+		dataType: string
+		lineageTag: 60db63c3-01c8-405f-8616-995a3e434f1f
+		summarizeBy: none
+		sourceColumn: vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column resale_model
+		dataType: string
+		lineageTag: f9036613-9ca3-48d3-bdda-c37a02f0aedd
+		summarizeBy: none
+		sourceColumn: resale_model
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_safe_name
+		dataType: string
+		lineageTag: a24a2fb0-ac19-4979-a7f5-91c23ee30006
+		summarizeBy: none
+		sourceColumn: brand_safe_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_orig
+		dataType: string
+		lineageTag: c8b5aeff-071c-4162-a8a6-842ac456ccf2
+		summarizeBy: none
+		sourceColumn: product_name_orig
+
+		annotation SummarizationSetBy = Automatic
+
+	column base_price_usd_orig
+		dataType: double
+		lineageTag: 5f317a58-b7c3-4c50-82b2-027c6470a397
+		summarizeBy: sum
+		sourceColumn: base_price_usd_orig
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column base_key
+		dataType: string
+		lineageTag: 46e11086-a771-41e5-8cd3-40ae16b945a8
+		summarizeBy: none
+		sourceColumn: base_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_version
+		dataType: string
+		lineageTag: ee0d0661-24c6-4f3b-8ad9-9b6e183e4c1c
+		summarizeBy: none
+		sourceColumn: product_version
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dProducts = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.11\data\DataDNA Dataset Challenge - E-commerce Dataset - November 2025.xlsx"), null, true),
+				    Products_Sheet = Fonte{[Item="Products",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Products_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"product_id", type text}, {"product_name", type text}, {"category", type text}, {"is_subscription", type logical}, {"billing_cycle", type text}, {"base_price_usd", type number}, {"first_release_date", type date}, {"vendor", type text}, {"resale_model", type text}, {"brand_safe_name", type text}, {"product_name_orig", type text}, {"base_price_usd_orig", type number}, {"base_key", type text}, {"product_version", type text}})
+				in
+				    #"Tipo Alterado"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,48 @@
+table pNumbers
+	lineageTag: 6362e42e-35f4-481c-8d1d-3176209e5099
+
+	column pNumbers
+		lineageTag: 3480c3ae-6894-4d94-974f-b7938079c32d
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pNumbers Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pNumbers Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pNumbers Campos'
+		isHidden
+		lineageTag: 3f67b43b-ccf3-4afb-86ef-78f617071e9c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pNumbers Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pNumbers Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 854fd578-2cf1-4b68-99a2-af88e18e48f3
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pNumbers = calculated
+		mode: import
+		source =
+				{
+				    ("Events", NAMEOF('_Measures'[Events]), 0),
+				    ("Revenue", NAMEOF('_Measures'[Revenue]), 1)
+				}
+
+	annotation PBI_Id = cf5539cdeba0449d8def40578972bbe9
+

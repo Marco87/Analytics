@@ -1,0 +1,40 @@
+relationship 22328bb9-da6d-410b-8e41-8d1b598c8948
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCustomers.signup_date
+	toColumn: LocalDateTable_9aa0b167-45a4-4fa2-ada0-f598eb4137a9.Date
+
+relationship 242f5242-6e48-4a04-9f48-3ffb0bdad3b5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fEvents.refund_datetime
+	toColumn: LocalDateTable_2478c8e8-0839-4394-8e8a-21284dbac56d.Date
+
+relationship a39274f3-d061-4241-8a84-aaa2155977f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dProducts.first_release_date
+	toColumn: LocalDateTable_d70fa4d8-b435-41c2-bf72-78a7ad7f8069.Date
+
+relationship AutoDetected_3324ffdd-70c2-4f94-bd2d-c95d917af94b
+	fromColumn: fEvents.customer_id
+	toColumn: dCustomers.customer_id
+
+relationship AutoDetected_6190acb3-f430-44c5-ba4e-7e6fe8e3a553
+	fromColumn: fEvents.product_id
+	toColumn: dProducts.product_id
+
+relationship 4a930874-0f74-0e05-e971-a15721ba9ced
+	fromColumn: fEvents.event_time
+	toColumn: dTime.event_time
+
+relationship AutoDetected_6bcb110f-1fb5-4b71-b8fe-b54a204373a5
+	fromColumn: fEvents.country
+	toColumn: dCountries.country
+
+relationship e02fb8a4-201f-4c3f-aa46-a0129d8ef686
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendar.Date
+	toColumn: LocalDateTable_cdb45a7a-dfd2-46c0-9f28-de2afda162e5.Date
+
+relationship 7f2a41de-cca1-9208-b5e5-6122db06016b
+	fromColumn: fEvents.event_date
+	toColumn: dCalendar.Date
+

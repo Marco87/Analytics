@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 520.07280513918636,
+            "y": 328.64453961456104
+          },
+          "nodeIndex": "space_missions",
+          "nodeLineageTag": "8b9998f1-55b0-4e0c-afec-881e29c74e0e",
+          "size": {
+            "height": 376.72376873661671,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 189
+          },
+          "nodeIndex": "space_missions_data_dictionary",
+          "nodeLineageTag": "20339a50-f548-47fb-8f03-4ae73e51bce2",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 201
+          },
+          "nodeIndex": "_measures",
+          "nodeLineageTag": "f30e4eb0-23a8-4fd3-a263-41d4b4b50cf9",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 105.63597430406853,
+            "y": 474.57173447537474
+          },
+          "nodeIndex": "dCalendar",
+          "nodeLineageTag": "a411bb4f-0196-4653-a7c2-220644971532",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1004.1841541755889,
+            "y": 415.50321199143468
+          },
+          "nodeIndex": "dTime",
+          "nodeLineageTag": "3c4bb973-ffcc-494a-a65e-aac380a42709",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 830.53961456102786,
+            "y": 809.72376873661676
+          },
+          "nodeIndex": "dLocation",
+          "nodeLineageTag": "4609ec78-8a51-4a6b-8400-04886252e86a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 363.40042826552462,
+            "y": 818.1841541755889
+          },
+          "nodeIndex": "dCountry",
+          "nodeLineageTag": "9075a8d7-d594-4bca-9a39-cea554cdd264",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 69.930445668410286,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

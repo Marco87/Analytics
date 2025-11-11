@@ -1,0 +1,91 @@
+table dCustomers
+	lineageTag: 125c707e-d7bc-48b3-b061-ccb4a3b3cd9e
+
+	column customer_id
+		dataType: string
+		lineageTag: 13725095-b7c9-4587-a3e8-f314858c29c2
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column signup_date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 65e62050-57fb-4f37-b9cb-c297a906f227
+		summarizeBy: none
+		sourceColumn: signup_date
+
+		variation Variation
+			isDefault
+			relationship: 22328bb9-da6d-410b-8e41-8d1b598c8948
+			defaultHierarchy: LocalDateTable_9aa0b167-45a4-4fa2-ada0-f598eb4137a9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column segment
+		dataType: string
+		lineageTag: b0efe3f4-94ee-4228-8b93-73b2a4f1b271
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column acquisition_channel
+		dataType: string
+		lineageTag: 8a082130-bfb9-401d-a70d-d732b8426d08
+		summarizeBy: none
+		sourceColumn: acquisition_channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_band
+		dataType: string
+		lineageTag: 22e5a97f-a2d9-4576-8d56-169a8bdc337e
+		summarizeBy: none
+		sourceColumn: age_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: a21f6d78-af11-4a89-997c-f4437689e484
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column signup_year_month = FORMAT(dCustomers[signup_date], "yyyy.MMM")
+		lineageTag: d598c809-d168-4a22-bf1d-0e2516f3f95f
+		summarizeBy: none
+		sortByColumn: signup_year_month_no
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column signup_year_month_no = FORMAT(dCustomers[signup_date], "yyyy.MM")
+		lineageTag: ed43fa2d-c0b8-43e9-8054-6ab8403d96d9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCustomers = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.11\data\DataDNA Dataset Challenge - E-commerce Dataset - November 2025.xlsx"), null, true),
+				    Customers_Sheet = Fonte{[Item="Customers",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Customers_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"customer_id", type text}, {"signup_date", type datetime}, {"region", type text}, {"currency_preference", type text}, {"segment", type text}, {"acquisition_channel", type text}, {"age_band", type text}, {"country", type text}, {"country_latitude", type number}, {"country_longitude", type number}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Tipo Alterado",{{"signup_date", type date}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado1",{"region", "currency_preference", "country_latitude", "country_longitude"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

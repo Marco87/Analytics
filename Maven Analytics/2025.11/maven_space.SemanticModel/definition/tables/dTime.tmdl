@@ -1,0 +1,53 @@
+table dTime
+	lineageTag: 3c4bb973-ffcc-494a-a65e-aac380a42709
+
+	column Time
+		formatString: Short Time
+		lineageTag: 6120d22e-893f-4f24-94d4-91992cba2b55
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: space_missions[Time]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column TimeText = CONVERT(dTime[Time], STRING)
+		lineageTag: 92363add-d398-4d47-af26-f5b782ad994a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeNumber = CONVERT(MID(dTime[Time],1,2),INTEGER)
+		formatString: 0
+		lineageTag: d9675457-6a9d-44d2-bcfd-9e184714babb
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Inteval =
+			
+			SWITCH(
+			    TRUE(),
+			    dTime[TimeText] = "11:11:11", "❌Time not specified",
+			    dTime[TimeNumber] > 0  && dTime[TimeNumber] <=  6 , "⏱️00:00 - 06:00",
+			    dTime[TimeNumber] > 6  && dTime[TimeNumber] <= 12 , "⏱️06:00 - 12:00",
+			    dTime[TimeNumber] > 12 && dTime[TimeNumber] <= 18 , "⏱️12:00 - 18:00",
+			    "⏱️18:00 - 00:00"
+			)
+		lineageTag: 386a5eb7-e10f-4b94-9b34-9d66f1deeb64
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dTime = calculated
+		mode: import
+		source =
+				
+				FILTER(
+				    VALUES(space_missions[Time]),
+				    NOT(ISBLANK(space_missions[Time]))
+				)
+
+	annotation PBI_Id = 31e7d8bb01b9439497f8494467a2922f
+

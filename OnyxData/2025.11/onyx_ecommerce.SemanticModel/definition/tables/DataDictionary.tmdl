@@ -1,0 +1,38 @@
+table DataDictionary
+	isHidden
+	lineageTag: 2bd69fdc-9a2c-448e-9795-e7c40035aacc
+
+	column Column
+		dataType: string
+		lineageTag: dd039a07-09ad-438b-8450-4b7f7db54a86
+		summarizeBy: none
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: 3f0c20c3-8f23-4057-886b-4a2d11f39d48
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DataDictionary = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2025.11\data\DataDNA Dataset Challenge - E-commerce Dataset - November 2025.xlsx"), null, true),
+				    DataDictionary_Sheet = Fonte{[Item="DataDictionary",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(DataDictionary_Sheet,{{"Column1", type text}, {"Column2", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Column", type text}, {"Description", type text}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

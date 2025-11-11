@@ -1,0 +1,168 @@
+table dCalendar
+	lineageTag: 8e8dd2c3-91fa-4a42-ad8a-18c0cdf8ef3b
+
+	column Date
+		formatString: General Date
+		lineageTag: 3bc35b3a-5557-4707-8108-943048206f7b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: e02fb8a4-201f-4c3f-aa46-a0129d8ef686
+			defaultHierarchy: LocalDateTable_cdb45a7a-dfd2-46c0-9f28-de2afda162e5.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		formatString: 0
+		lineageTag: abe58545-62bd-4bb6-a20c-55b9199fad0c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		lineageTag: 5f37759d-b968-478c-8e00-7a780b009719
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column month2
+		lineageTag: 5a5613a0-afc1-4352-9945-dfa254b6087c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column trim
+		lineageTag: 85da8198-10ae-495f-ae30-046f93774d5c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trim]
+
+		annotation SummarizationSetBy = Automatic
+
+	column sem
+		lineageTag: a919f211-fc5e-438e-a39d-5405d53aee85
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Sem]
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekday
+		lineageTag: f651b076-208a-4b02-9e69-d47d83b06bed
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekday_no
+		formatString: 0
+		lineageTag: 41ec7e3d-2d07-444d-9171-752830973247
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Weekday_No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month
+		lineageTag: 76b82ed9-4b01-478f-8f36-afe09b29bd91
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [year_month]
+		sortByColumn: year_month_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_month_no
+		lineageTag: dc60d14c-9783-4b14-b045-f22651b6367a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [year_month_no]
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_year
+		lineageTag: 613d0a60-2896-4200-9abd-e090341bc30c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [month_year]
+		sortByColumn: year_month_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_mumber
+		formatString: 0
+		lineageTag: 87060e77-828f-4ce1-ad5f-be3b470aa9cb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [month_mumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		lineageTag: 18c8db1b-5d8b-4436-bcca-2a700f7cb1e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [day_of_week]
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_number
+		formatString: 0
+		lineageTag: eca7ef90-6a91-455d-b626-bd85e0dac916
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [week_number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column semester_year
+		lineageTag: 502fea8f-13b4-4cec-9428-8bdad1af7516
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [semester_year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column year_semester
+		lineageTag: ccf02cfe-ce39-4878-94e5-be275855d796
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [year_semester]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendar = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    CALENDAR(MIN(fEvents[event_date]),MAX(fEvents[event_date])),
+				    "year", YEAR([Date]),
+				    "month", FORMAT([Date], "MMMM"),
+				    "month2", FORMAT([Date], "MMM"),
+				    "year_month", FORMAT([Date], "yyyy.MMM"),
+				    "year_month_no", FORMAT([Date], "yyyyMM"),
+				    "month_year", FORMAT([Date], "MMM.yyyy"),
+				    "month_mumber", MONTH([Date]),
+				    "trim", FORMAT([Date], "Q") & "° Quarter - " & YEAR([Date]),
+				    "sem", IF(MONTH([Date]) <= 6, "1° Semester - ", "2° Semester - ") & YEAR([Date]),
+				    "weekday", FORMAT([Date], "dddd"),
+				    "weekday_no", WEEKDAY([Date],1),
+				    "day_of_week", FORMAT ([Date], "dddd" ),
+				    "week_number", WEEKNUM ([Date], 2 ),
+				    "semester_year", "S" & ROUNDUP ( MONTH ([Date] ) / 6, 0 ) & " " & YEAR ([Date]),
+				    "year_semester", YEAR ([Date]) & " S" & ROUNDUP ( MONTH ([Date]) / 6, 0 )
+				)
+
+	annotation PBI_Id = e820ceac935d4af2ad8c5dc7e16d7a1d
+
