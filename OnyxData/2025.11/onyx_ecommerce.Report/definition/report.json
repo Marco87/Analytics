@@ -9,6 +9,15 @@
         "page": "2.3.0"
       },
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Eletro_Neon_Turquesa_(Simplifi9863433165786385.json",
+      "reportVersionAtImport": {
+        "visual": "2.1.0",
+        "report": "3.0.0",
+        "page": "2.3.0"
+      },
+      "type": "RegisteredResources"
     }
   },
   "objects": {
@@ -39,6 +48,22 @@
           "name": "CY25SU10",
           "path": "BaseThemes/CY25SU10.json",
           "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Eletro_Neon_Turquesa_(Simplifi9863433165786385.json",
+          "path": "Eletro_Neon_Turquesa_(Simplifi9863433165786385.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "onyx_ecommerce23400025835559835.svg",
+          "path": "onyx_ecommerce23400025835559835.svg",
+          "type": "Image"
         }
       ]
     }

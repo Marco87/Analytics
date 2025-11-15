@@ -1,0 +1,50 @@
+table pCategories
+	lineageTag: 3010baaa-d8c3-4517-b5c7-e69da2cc5c6f
+
+	column pCategories
+		lineageTag: 92bc04e6-f0d7-43f6-9714-51e1c6e60e82
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pCategories Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pCategories Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCategories Campos'
+		isHidden
+		lineageTag: ce9e184c-b697-4bd0-bba5-377ac3f9b939
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pCategories Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pCategories Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 487202eb-ade3-4b1e-928a-e8d5a417d70e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pCategories = calculated
+		mode: import
+		source =
+				{
+				    ("Channel", NAMEOF('fEvents'[channel]), 0),
+				    ("Event type", NAMEOF('fEvents'[event_type]), 1),
+				    ("Payment method", NAMEOF('fEvents'[payment_method]), 2),
+				    ("Refund reason", NAMEOF('fEvents'[refund_reason]), 3)
+				}
+
+	annotation PBI_Id = e5143407270841f4a0e71f42120466d4
+

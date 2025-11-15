@@ -1,97 +1,129 @@
-# 💼 Consumer Financial Complaints Analytics – Power BI Dashboard  
-### Developed for the [**DataDNA Challenge – October 2025 (Onyx Data)**](https://datadna.onyxdata.co.uk/challenges/october-2025-datadna-consumer-financial-complaints-analytics-challenge/?ck_subscriber_id=1387339873&utm_source=convertkit&utm_medium=email&utm_campaign=The%20October%202025%20DataDNA%20Dataset%20Challenge%20has%20Begun!%20-%2019181388)
+# 📊 ONYX E-COMMERCE ANALYTICS — Power BI Dashboard  
+### November 2025 DataDNA Challenge  
 
 
-🔗 **Live Dashboard:** [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiZWQxZjllYmUtZDBhNi00ODY5LTg3NTYtZjA0Mzk3MzBlODQ4IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+Welcome to my **E-Commerce Analytics Dashboard**, developed for the [**November 2025 DataDNA Challenge**](https://datadna.onyxdata.co.uk/challenges/november-2025-datadna-ecommerce-analytics-challenge/?ck_subscriber_id=1387339873&utm_source=convertkit&utm_medium=email&utm_campaign=The%20November%202025%20DataDNA%20Dataset%20Challenge%20has%20Begun!%20-%2019543600) by Onyx Data.  
+This Power BI solution explores a rich e-commerce dataset, revealing customer behavior, product performance and sales dynamics across multiple dimensions.  
 
 
----
-
-## 📘 Project Overview
-This project was created as part of the **DataDNA Challenge (October 2025)**, hosted by **Onyx Data**.  
-The goal was to analyze **consumer financial complaints in the United States** and visualize insights using **Power BI** in a clean, modern, and business-oriented dashboard.  
-
-The dashboard provides a comprehensive overview of complaint patterns, company performance, and response efficiency, enabling users to explore and compare key indicators interactively.
+🔗 **Live Dashboard:** [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiMDMyMmNhOWQtNTViYS00YzI1LTkyNGQtZmIzMzU0OWMyNzg3IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
 
 ---
 
-## 🎯 Objectives
-- Evaluate the **efficiency and timeliness** of company responses to consumer complaints.  
-- Identify **regional and temporal trends** in customer dissatisfaction.  
-- Measure the relationship between **reputation, company size, and market share**.  
-- Deliver a **visually engaging and easy-to-use dashboard** for decision-makers and analysts.  
+## 📝 **Project Overview**
+
+This dashboard provides a **comprehensive view of e-commerce performance**, combining customer characteristics, product insights, sales behavior and discount analysis to uncover trends and commercial opportunities.  
+
+It was designed with an intuitive navigation panel, allowing users to apply multiple cross-filters and explore the dataset from various business perspectives.
 
 ---
 
-## 🧱 Data Model Structure
-The data model follows a **Star Schema**, with a fact table containing complaint records and a company dimension providing company-level details.
+## 🧭 **Sidebar Filters & User Controls**
 
-### **Fact Table – `Complaints`**
-Includes all consumer complaint records with attributes such as:
-- Complaint ID, submission and receipt dates  
-- State, product, sub-product, issue, and sub-issue  
-- Channel of submission (Web, Phone, Referral, etc.)  
-- Response time (in days) and timeliness flag  
-- Company identifier and region/division classifications  
+### 👤 **Customer-Oriented Filters**
+- **Segment**
+- **Acquisition Channel**
+- **Age Band**
 
-### **Dimension Table – `Company`**
-Contains company-level information used for performance benchmarking:
-- Market share percentage  
-- Reputation score (range 50–100)  
-- Company size tier (Small, Medium, Large)  
-- Average response time and timely response rate  
-- Complaint normalization KPI (Complaints per 1% market share)
+These filters enable user profiling and help understand how customer demographics impact sales volume and revenue.
 
----
+### 🛒 **Event & Sales Filters**
+- **Channel used in the transaction**
+- **Event type**
+- **Payment method**
+- **Refund reason**
 
-## 📊 Dashboard Overview
-The Power BI dashboard was designed to present both **macro insights** and **company-level performance** through dynamic visuals and clear KPIs.
+These allow a deeper dive into how sales are executed, refunded, or distributed across channels.
 
-**Main KPIs:**
-- Total number of distinct companies  
-- Total complaints  
-- Average response time (days)  
-- Average reputation score  
-- Timely response rate  
+### 🧮 **Key Metrics Cards**
+- **Total Events:** 48,000  
+- **Revenue:** $31,832,281.48  
+- **Discounts Granted:** $1,272,735.41  
 
-**Main Visuals:**
-- 📍 **Interactive filters** by company, region, product, sub-product, issue, and sub-issue  
-- 📈 **Summary KPIs** displayed in the top banner  
-- 🗺️ **Complaints by State** (geographical analysis)  
-- 🥧 **Complaints by Company Size and Submission Channel**  
-- 📊 **Complaints by Product** (category breakdown)  
-- 🕒 **Complaints by Semester** (trend analysis)  
-- 📋 **Company performance table** with key indicators  
+Providing a quick snapshot of overall business performance.
 
 ---
 
-## 🎨 Design and Layout
-The dashboard design combines a **modern gradient background** (purple–blue tone) with **white workspace areas**, resulting in a professional and visually appealing layout.
+## 📈 **Dashboard Sections & Insights**
 
-**Design highlights:**
-- Sidebar with navigation filters and gradient background  
-- Consistent use of color to distinguish categories and KPIs  
-- Clean layout with strong visual hierarchy and easy navigation  
-- Alignment with **corporate analytics dashboard aesthetics**
+### ⭐ 1. **Customer & Product Insights**
+Includes:
+- A **scatter plot** showing the relationship between **Events vs. Revenue**, switchable between:
+  - Customer Segment  
+  - Acquisition Channel  
+  - Age Band  
+- Visuals showing **sales by category, product, and vendor**, enabling identification of top-selling items and high-value segments.
 
-**Tools Used:**
-- 🧩 Power BI Desktop  
-- 🎨 Figma (for background design and layout)  
-
----
-
-## 💡 Key Insights
-- States like **California, Florida, and Texas** register the highest number of complaints.  
-- **Large companies** receive the majority of complaints but tend to respond more promptly.  
-- The **Web channel** dominates as the main submission method (>70% of total complaints).  
-- Most complaints are related to **traditional financial products** such as checking accounts and credit cards.  
-- The **average reputation score (≈75)** reflects overall strong performance but with significant company variation.  
+💡 *Insight:*  
+The scatter chart clearly reveals concentration clusters of high-revenue clients or categories, highlighting which segments generate the most value despite potentially lower event volume.
 
 ---
 
-## 👤 Author
-**Marco Alencastro**  
-Data Analyst | Power BI Developer  
+### 🌍 2. **Geographical Sales Analysis**
+A table showing:
+- **Events**
+- **Revenue**
+- **Discounts**
 
-🔗 [LinkedIn](https://www.linkedin.com/in/marco-alencastro/)  
-🌐 [Portfolio](https://allen87.com/)
+Across various countries.  
+
+💡 *Insight:*  
+Countries like **United States, United Kingdom and Canada** show strong revenue performance, signaling mature customer bases and potential for targeted marketing.
+
+---
+
+### 🛎️ 3. **Sales Channel & Operational Metrics**
+A dynamic bar chart that adapts to the selected filter (Channel, Event Type, Payment Method, Refund Reason).  
+
+This helps identify:
+- Which channels drive the highest engagement (e.g., Website, Marketplace)
+- Operational inefficiencies
+- Patterns in cancellations or refunds
+
+💡 *Insight:*  
+**Website sales** dominate the event count, while direct sales and marketplace channels present high-value opportunities depending on the vendor.
+
+---
+
+### 🎟️ 4. **Discount Analysis**
+Includes:
+- Discount events volume  
+- Total discount amount  
+- Average discount applied  
+- Word cloud of discount codes  
+
+💡 *Insight:*  
+Discount codes like **WELCOME10**, **STUDENT20**, and **BFCM10** appear frequently, indicating that promotional strategies strongly influence customer behavior during specific periods.
+
+---
+
+### 🕒 5. **Time-Based Performance**
+- **Events by Month**  
+- **Events by Time Interval (hourly)**
+
+💡 *Insight:*  
+Certain months show spikes in sales activity, often aligned with promotional campaigns.  
+Time-interval analysis sheds light on purchasing patterns—useful for scheduling campaigns, support availability, and release strategies.
+
+---
+
+## 💡 **General Observations**
+✔️ Vendors such as Adobe and AI Tools lead in both events and revenue, showing strong product adoption.  
+✔️ Discounts play a significant role in boosting volume, especially during seasonal periods.  
+✔️ Combining customer segmentation with channel analysis highlights which profiles respond best to promotional actions.  
+✔️ The multi-level filtering enables strategic decisions on pricing, acquisition strategies, and targeted marketing.
+
+---
+
+If you enjoyed this project or want to collaborate, feel free to reach out!  
+Let’s connect 🚀
+
+### 🔗 **Links**
+- **LinkedIn:** https://linkedin.com/in/marco-alencastro  
+- **Portfolio:** https://allen87.com/  
+
+---
+
+## ⭐ **If you liked this dashboard, don’t forget to star the repository!**  
+
+Thank you for exploring this project! 😊

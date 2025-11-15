@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "d8ab756edbe5d8930880",
   "position": {
-    "x": 62.606226795117777,
-    "y": 258.02955665024632,
+    "x": 62.955665024630541,
+    "y": 266.00985221674875,
     "z": 10000,
-    "height": 226.99507389162562,
+    "height": 214.58128078817734,
     "width": 544.43349753694577,
     "tabOrder": 7000
   },
@@ -184,6 +184,104 @@
           "selector": {
             "metadata": "dCountry.Country"
           }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "39D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dCountry.Flag"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "65D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Missions"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "73D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Price"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "45D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Cities"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "71D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Locations"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "80D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Companies"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "59D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_measures.Rockets"
+          }
         }
       ],
       "columnHeaders": [
@@ -200,6 +298,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

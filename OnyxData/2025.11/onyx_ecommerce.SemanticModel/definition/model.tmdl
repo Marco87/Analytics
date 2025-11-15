@@ -27,6 +27,7 @@ ref table dCountries
 ref table LocalDateTable_cdb45a7a-dfd2-46c0-9f28-de2afda162e5
 ref table pCustomers
 ref table pNumbers
+ref table pCategories
 
 ref cultureInfo pt-BR
 

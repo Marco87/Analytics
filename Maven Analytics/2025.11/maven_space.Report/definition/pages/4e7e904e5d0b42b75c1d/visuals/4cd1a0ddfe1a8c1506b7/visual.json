@@ -239,6 +239,48 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 6,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "space_missions"
+                          }
+                        },
+                        "Property": "TagPrice"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Price not specified'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     },

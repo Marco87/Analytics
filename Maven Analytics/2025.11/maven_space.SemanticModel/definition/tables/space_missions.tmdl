@@ -85,7 +85,7 @@ table space_missions
 
 	column TagPrice =
 			
-			IF(space_missions[Price] <> BLANK(), "Priced", "No Price")
+			IF(space_missions[Price] <> BLANK(), "Priced", "Price not specified")
 		lineageTag: 5008e24c-b592-40e5-892c-3fe5e6f18c92
 		summarizeBy: none
 

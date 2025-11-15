@@ -8634,6 +8634,229 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "p_category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "pCategories"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p category": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pCategories": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "p classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "p class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p group": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p type": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "p_category.p_category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "pCategories",
+			          "ConceptualProperty": "pCategories"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p category": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p category name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pCategories": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "p classification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "p class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p group": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p type": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "p kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "p_category.pCategories_campos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "pCategories",
+			          "ConceptualProperty": "pCategories Campos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "pCategories campos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pCategory campos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
+			    },
+			    "p_category.pCategories_pedido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "pCategories",
+			          "ConceptualProperty": "pCategories Pedido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "pCategories pedido": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "pCategory pedido": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -9887,6 +10110,52 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "d_customers_have_f_events"
+			        }
+			      ]
+			    },
+			    "p_category_has_p_category": {
+			      "Binding": {
+			        "ConceptualEntity": "pCategories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "p_category": {
+			          "Target": {
+			            "Entity": "p_category"
+			          }
+			        },
+			        "p_category.p_category": {
+			          "Target": {
+			            "Entity": "p_category.p_category"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "p_category"
+			            },
+			            "Object": {
+			              "Role": "p_category.p_category"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "p_categories_have_p_categories"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "p_category"
+			            },
+			            "Name": {
+			              "Role": "p_category.p_category"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "p_categories_are_names_IDs_of_p_categories"
 			        }
 			      ]
 			    },
