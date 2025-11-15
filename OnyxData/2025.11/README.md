@@ -1,12 +1,13 @@
 # 📊 ONYX E-COMMERCE ANALYTICS — Power BI Dashboard  
 ### November 2025 DataDNA Challenge  
 
-
 Welcome to my **E-Commerce Analytics Dashboard**, developed for the [**November 2025 DataDNA Challenge**](https://datadna.onyxdata.co.uk/challenges/november-2025-datadna-ecommerce-analytics-challenge/?ck_subscriber_id=1387339873&utm_source=convertkit&utm_medium=email&utm_campaign=The%20November%202025%20DataDNA%20Dataset%20Challenge%20has%20Begun!%20-%2019543600) by Onyx Data.  
 This Power BI solution explores a rich e-commerce dataset, revealing customer behavior, product performance and sales dynamics across multiple dimensions.  
 
 
 🔗 **Live Dashboard:** [View on Power BI Service](https://app.powerbi.com/view?r=eyJrIjoiMDMyMmNhOWQtNTViYS00YzI1LTkyNGQtZmIzMzU0OWMyNzg3IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/8ec0fad6-52f5-44e4-90ba-4a4453cf2da6)](https://app.powerbi.com/view?r=eyJrIjoiMDMyMmNhOWQtNTViYS00YzI1LTkyNGQtZmIzMzU0OWMyNzg3IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
 
 ---
 
