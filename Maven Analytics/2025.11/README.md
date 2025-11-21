@@ -1,7 +1,5 @@
 # 🚀 Maven Space Challenge — Space Missions Dashboard (Power BI)
 
-![Dashboard Preview](./110c5ab9-1ea4-49e3-98ee-72986bcf333a.png)
-
 ## 🌌 Overview  
 This project was created for the **Maven Analytics – Return to Space Challenge**, where participants were asked to design a compelling and insightful dashboard using real-world space mission data.
 
@@ -9,6 +7,8 @@ Using **Power BI**, I designed an interactive dashboard that allows users to exp
 
 🔗 **Challenge:** https://mavenanalytics.io/challenges/maven-return-to-space-challenge  
 📊 **Live Dashboard:** https://app.powerbi.com/view?r=eyJrIjoiYzU3YTdhYWYtNTYwNS00ZjhmLThmZmQtMTA0ZTRmNGYxODgyIiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/cedca14f-ef51-4d97-a5b9-7b38fdce4292)](https://app.powerbi.com/view?r=eyJrIjoiYzU3YTdhYWYtNTYwNS00ZjhmLThmZmQtMTA0ZTRmNGYxODgyIiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
 
 ---
 
