@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "4cd1a0ddfe1a8c1506b7",
+  "name": "c56e557665a63273c1d6",
   "position": {
-    "x": 1043.6453201970444,
-    "y": 93.103448275862064,
-    "z": 7000,
-    "height": 140.09852216748769,
-    "width": 216.35467980295567,
-    "tabOrder": 3000
+    "x": 819.31034482758616,
+    "y": 266.00985221674875,
+    "z": 21002,
+    "height": 214.58128078817734,
+    "width": 211.92118226600985,
+    "tabOrder": 21002
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "space_missions"
+                      "Entity": "dLocation"
                     }
                   },
-                  "Property": "TagPrice"
+                  "Property": "Place"
                 }
               },
-              "queryRef": "space_missions.TagPrice",
-              "nativeQueryRef": "Price Status",
-              "active": true,
-              "displayName": "Price Status"
+              "queryRef": "dLocation.Place",
+              "nativeQueryRef": "Place",
+              "active": true
             }
           ]
         },
@@ -47,7 +46,24 @@
                 }
               },
               "queryRef": "_measures.Missions",
-              "nativeQueryRef": "Missions"
+              "nativeQueryRef": "🎯Missions",
+              "displayName": "🎯Missions"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pNumbers"
+                    }
+                  },
+                  "Property": "pNumbers"
+                }
+              },
+              "index": 0,
+              "length": 1
             }
           ]
         }
@@ -72,72 +88,27 @@
       }
     },
     "objects": {
-      "labels": [
+      "categoryAxis": [
         {
           "properties": {
-            "labelStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Data'"
-                }
-              }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          }
-        },
-        {
-          "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
-        }
-      ],
-      "legend": [
-        {
-          "properties": {
-            "showTitle": {
+            "showAxisTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "position": {
+            "gridlineShow": {
               "expr": {
                 "Literal": {
-                  "Value": "'BottomCenter'"
+                  "Value": "false"
                 }
               }
             },
-            "fontSize": {
+            "maxMarginFactor": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "50L"
                 }
               }
             },
@@ -156,92 +127,101 @@
           }
         }
       ],
-      "dataPoint": [
+      "valueAxis": [
         {
           "properties": {
-            "fill": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OutsideEnd'"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "color": {
               "solid": {
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 6,
+                      "ColorId": 0,
                       "Percent": 0
                     }
                   }
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "space_missions"
-                          }
-                        },
-                        "Property": "TagPrice"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'No Price'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
           }
-        },
+        }
+      ],
+      "dataPoint": [
         {
           "properties": {
-            "fill": {
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "borderSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
+                }
+              }
+            },
+            "borderColorMatchFill": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "borderColor": {
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#009DBF'"
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
                     }
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "space_missions"
-                          }
-                        },
-                        "Property": "TagPrice"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Priced'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "properties": {
+            },
             "fill": {
               "solid": {
                 "color": {
@@ -254,32 +234,6 @@
                 }
               }
             }
-          },
-          "selector": {
-            "data": [
-              {
-                "scopeId": {
-                  "Comparison": {
-                    "ComparisonKind": 0,
-                    "Left": {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Entity": "space_missions"
-                          }
-                        },
-                        "Property": "TagPrice"
-                      }
-                    },
-                    "Right": {
-                      "Literal": {
-                        "Value": "'Price not specified'"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
           }
         }
       ]
@@ -288,6 +242,13 @@
       "title": [
         {
           "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
             "fontSize": {
               "expr": {
                 "Literal": {
@@ -317,6 +278,26 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

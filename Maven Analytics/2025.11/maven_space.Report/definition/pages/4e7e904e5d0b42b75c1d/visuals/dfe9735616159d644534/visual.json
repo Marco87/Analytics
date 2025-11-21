@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "dfe9735616159d644534",
   "position": {
     "x": 1043.6453201970444,
@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 73.5960591133005,
     "width": 216.35467980295567,
-    "tabOrder": 18000
+    "tabOrder": 17000
   },
   "visual": {
     "visualType": "slicer",
@@ -141,5 +141,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d0bebbd4199787560037",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "space_missions"
+              }
+            },
+            "Property": "RocketStatus"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
