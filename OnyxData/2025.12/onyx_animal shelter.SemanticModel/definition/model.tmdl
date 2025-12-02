@@ -1,0 +1,23 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["f_animal","_measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table f_animal
+ref table DateTableTemplate_6f34e623-4368-49e9-800b-a5f67741366f
+ref table LocalDateTable_b7992f31-7fec-4aa6-8b43-912ff4f51af7
+ref table LocalDateTable_1c977722-4363-4a65-a3e8-7f9126d30379
+ref table LocalDateTable_cb623485-deb3-4ff5-b233-a2e7e5a339ca
+ref table _measures
+
+ref cultureInfo pt-BR
+

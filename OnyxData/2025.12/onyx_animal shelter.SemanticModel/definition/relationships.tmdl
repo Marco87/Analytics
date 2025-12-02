@@ -1,0 +1,15 @@
+relationship 783927f6-4c93-41e2-8fbd-6b4a8e3dead2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: f_animal.DOB
+	toColumn: LocalDateTable_b7992f31-7fec-4aa6-8b43-912ff4f51af7.Date
+
+relationship e9bd0bba-014a-4163-b83e-80dcbbb60bd3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: f_animal.'Intake Date'
+	toColumn: LocalDateTable_1c977722-4363-4a65-a3e8-7f9126d30379.Date
+
+relationship ef21289b-fb08-4ef7-9898-33fee183ef5f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: f_animal.'Outcome Date'
+	toColumn: LocalDateTable_cb623485-deb3-4ff5-b233-a2e7e5a339ca.Date
+
