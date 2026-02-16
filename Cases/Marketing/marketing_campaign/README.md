@@ -35,7 +35,10 @@ Essa estrutura permite análises rápidas e comparações estratégicas entre di
 
 # 📈 Tela 1 – Performance
 
-A tela de **Performance** apresenta uma visão operacional das campanhas ao longo do tempo.
+A tela de **Performance** apresenta uma visão operacional das campanhas ao longo do tempo (clique na imagem para ver o dashboard).
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/14e4f55f-2d26-4a0b-9048-ad9b8d7f7a35)](https://app.powerbi.com/view?r=eyJrIjoiOTRhZTljODYtODYxYS00ODAyLWJmNGEtMWIxNjhkZTRkOWU4IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
 
 ## Indicadores principais
 
@@ -85,7 +88,7 @@ Isso permite avaliar quais estratégias de audiência geram maior impacto.
 
 ### Palavras-chave
 
-O painel de palavras-chave revela:
+O visual de palavras-chave revela:
 
 - Termos mais utilizados nas campanhas
 - Volume de busca associado
@@ -102,7 +105,9 @@ Essa análise ajuda a identificar:
 
 A segunda tela é focada na **eficiência das campanhas**.
 
-Aqui o foco não é volume, mas **qualidade e custo de aquisição de tráfego**.
+Aqui o foco não é volume, mas **qualidade e custo de aquisição de tráfego** (clique na imagem para ver o dashboard).
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/5403e632-558d-4977-92fa-9d6b337be520)](https://app.powerbi.com/view?r=eyJrIjoiOTRhZTljODYtODYxYS00ODAyLWJmNGEtMWIxNjhkZTRkOWU4IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
 
 ---
 
@@ -169,7 +174,10 @@ Isso ajuda equipes de marketing a alinhar mídia e branding.
 
 A terceira tela apresenta a visão **financeira das campanhas**.
 
-Aqui o foco é investimento.
+Aqui o foco é investimento (clique na imagem para ver o dashboard).
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/68ca5e42-ddf3-4004-99a3-dea1f6fbc3f5)](https://app.powerbi.com/view?r=eyJrIjoiOTRhZTljODYtODYxYS00ODAyLWJmNGEtMWIxNjhkZTRkOWU4IiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
 
 ---
 
