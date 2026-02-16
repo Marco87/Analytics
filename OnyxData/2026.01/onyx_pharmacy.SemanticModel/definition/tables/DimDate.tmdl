@@ -1,0 +1,92 @@
+table DimDate
+	lineageTag: 73fadf3d-4afb-4917-8953-b1f944d6ef34
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 259df6c9-2945-4588-a43d-cf5488aefa25
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 8cbbaba2-ef28-488f-b29c-55a28648b2d8
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 97e05fcf-ac1c-46c7-b3f9-70884537a6ec
+			defaultHierarchy: LocalDateTable_5eff7a78-ba41-4cdd-84e5-470bbb5d8922.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ae39540-eeda-48eb-9af8-3c93e6e73c48
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: df13a1c8-36de-4ec0-9210-731f4d9b78f7
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 174b1ae8-9eb3-40a3-81c5-72c572c4cb7e
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: db278849-06e2-4550-9330-4b08b169f4f0
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f2eacd6e-10f6-4762-bd0e-b257917dccc8
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+		variation Variation
+			isDefault
+			relationship: a0dad13a-529a-436f-b321-21a0307a73b1
+			defaultHierarchy: LocalDateTable_981e65cd-6ef9-47d3-8303-5262db84c272.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\marco\OneDrive\Documentos\Repositorios\Git\Analytics\OnyxData\2026.01\data\Pharmacy_Data_Challenge_Dataset.xlsx"), null, true),
+				    DimDate_Sheet = Fonte{[Item="DimDate",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(DimDate_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"DateKey", Int64.Type}, {"Date", type date}, {"Year", Int64.Type}, {"Quarter", Int64.Type}, {"MonthNumber", Int64.Type}, {"MonthName", type text}, {"YearMonth", type date}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

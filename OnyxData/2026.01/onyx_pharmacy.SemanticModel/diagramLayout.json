@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 801.39225442616316,
+            "y": 325.53489212562249
+          },
+          "nodeIndex": "Data Dictionary",
+          "nodeLineageTag": "cd632df2-0c9c-48cb-baed-55c58cff8daf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 567.39225442616316,
+            "y": 653.069784251245
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "73fadf3d-4afb-4917-8953-b1f944d6ef34",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 597.92625009976518,
+            "y": 0
+          },
+          "nodeIndex": "DimPharmacy",
+          "nodeLineageTag": "4cd225f9-b512-49ac-9fd2-70a6fabbb4f5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 42.372569556884855
+          },
+          "nodeIndex": "DimProduct",
+          "nodeLineageTag": "1f3858da-9757-466d-9e29-cbd199b70ad2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 335.50188234732047,
+            "y": 303.67934108651269
+          },
+          "nodeIndex": "FactSales",
+          "nodeLineageTag": "6adf2ec6-7493-4b5e-9934-68d1714ee051",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1085.3922544261632,
+            "y": 423.53489212562249
+          },
+          "nodeIndex": "README",
+          "nodeLineageTag": "cefbcb5a-6bcd-4323-aed6-9f86df736024",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1319.3922544261632,
+            "y": 398.53489212562249
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 56.7041322022757,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

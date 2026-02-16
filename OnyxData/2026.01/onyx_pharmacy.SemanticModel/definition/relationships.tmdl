@@ -1,0 +1,37 @@
+relationship 97e05fcf-ac1c-46c7-b3f9-70884537a6ec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.Date
+	toColumn: LocalDateTable_5eff7a78-ba41-4cdd-84e5-470bbb5d8922.Date
+
+relationship a0dad13a-529a-436f-b321-21a0307a73b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.YearMonth
+	toColumn: LocalDateTable_981e65cd-6ef9-47d3-8303-5262db84c272.Date
+
+relationship 3e9f39bc-e470-4d8e-bccb-b9f3eaf9ab63
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimPharmacy.OpenDate
+	toColumn: LocalDateTable_73c650e9-1ff4-4ce1-9767-76fe22e45091.Date
+
+relationship afbe1f70-bf33-4828-a415-ba33f61f60f7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.LaunchDate
+	toColumn: LocalDateTable_4e0aaf73-e6b2-4a2b-89cb-b62cdaec83c3.Date
+
+relationship f3eb26fe-c3bf-42ff-854c-5b7f2fbd2565
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.DiscontinuedDate
+	toColumn: LocalDateTable_16e6932c-db99-4d18-a923-4ddbfd0ebded.Date
+
+relationship AutoDetected_a0617088-fd81-4cc5-8178-b28234c398f8
+	fromColumn: FactSales.DateKey
+	toColumn: DimDate.DateKey
+
+relationship AutoDetected_207edaf2-8ec6-49c5-b143-45765da71048
+	fromColumn: FactSales.PharmacyID
+	toColumn: DimPharmacy.PharmacyID
+
+relationship AutoDetected_17b4b2e5-2023-46e8-bc01-9b790c49ecbc
+	fromColumn: FactSales.ProductID
+	toColumn: DimProduct.ProductID
+
