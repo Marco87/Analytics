@@ -47,6 +47,10 @@ Essa estrutura possibilita análises cruzadas extremamente ricas, como:
 
 # 📈 Tela 1 – Performance
 
+(Clique na imagem para ver o dashboard)
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/fc7d8d4c-dea7-4073-a100-87c13c9e7c7d)](https://app.powerbi.com/view?r=eyJrIjoiYWNjZjUyZmEtODRmYy00NTcxLWFhOTYtMzI5NzIzMzdmZTdmIiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
 A primeira tela responde à pergunta:
 
 > **Quem estamos impactando e como isso evolui ao longo do tempo?**
@@ -116,6 +120,10 @@ Essa visão conecta volume com qualidade de resultado.
 
 # 📊 Tela 2 – Métricas
 
+(Clique na imagem para ver o dashboard)
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/6ef0db73-4f88-45db-836c-7c47d71cf940)](https://app.powerbi.com/view?r=eyJrIjoiYWNjZjUyZmEtODRmYy00NTcxLWFhOTYtMzI5NzIzMzdmZTdmIiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
 Se a primeira tela mostra o perfil e performance, esta responde:
 
 > **Qual é o volume real de impacto das campanhas?**
@@ -175,6 +183,11 @@ Esse tipo de análise é extremamente útil para entender estratégia operaciona
 ---
 
 # 🌎 Tela 3 – Analítico
+
+(Clique na imagem para ver o dashboard)
+
+[![📈 Dashboard Preview](https://github.com/user-attachments/assets/a5cd0611-6fdf-458c-a943-a2951bf96b01)](https://app.powerbi.com/view?r=eyJrIjoiYWNjZjUyZmEtODRmYy00NTcxLWFhOTYtMzI5NzIzMzdmZTdmIiwidCI6IjhiNDNmNWQ2LTQwOTgtNDYwNy05ODE2LWRlZDY1ZjlhMmU0YSJ9)
+
 
 A terceira tela traz uma perspectiva mais estratégica e comparativa.
 
